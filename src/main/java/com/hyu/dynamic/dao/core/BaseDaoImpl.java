@@ -147,7 +147,7 @@ public class BaseDaoImpl<T, K extends Serializable> implements BaseDao<T, K>
 
 	@Override
 	public <E> Page<E> query(final String queryString, final Object parameter, final Pageable pageable) {
-		final Map<String, Object> map = new HashMap<String, Object>();
+		final Map<String, Object> map = new HashMap<>();
 		final Sort sort = (pageable == null) ? null : pageable.getSort();
 		if (sort != null) {
 			final String orderString = sort.toString().replaceAll(":", " ");
@@ -400,7 +400,7 @@ public class BaseDaoImpl<T, K extends Serializable> implements BaseDao<T, K>
 	}
 
 	private <E> Query<E> createQuery(final String queryString, final Object parameter, final Sort sort, final int startPosition, final int maxResult) {
-		final Map<String, Object> map = new HashMap<String, Object>();
+		final Map<String, Object> map = new HashMap<>();
 		if (sort != null) {
 			final String orderString = sort.toString().replaceAll(":", " ");
 			map.put("sortColumns", orderString);
